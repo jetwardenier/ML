@@ -6,3 +6,8 @@ def test():
     print(x)
 test()
 
+def invert(): 
+    p = Perceptron([0], -1)
+    x = p.activate([1])
+    print(x)
+invert()

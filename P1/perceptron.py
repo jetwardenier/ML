@@ -12,9 +12,10 @@ class Perceptron():
             return 1
         else:
             return 0
+    ## Step activatie functie 
 
     def __str__(self): 
         return 'weights' + {self.weights} + 'bias' + {self.bias}
 
-class PerceptronLayer():
-    def __init__(self, list)
+# class PerceptronLayer():
+#     def __init__(self, list)
