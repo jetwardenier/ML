@@ -42,3 +42,8 @@ def partypoort():
     print(output)
 #partypoort()
 
+def testLayer(): 
+    l = (5, [0.5, -0.5], 2)
+    l = l.activate_layer([1,1,1])
+    print(l)
+testLayer()
