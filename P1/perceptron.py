@@ -3,19 +3,37 @@ class Perceptron():
     def __init__(self, weights, bias):
         self.weights = weights
         self.bias = bias
+    
 
-    def activate(self, __input:list): 
+## STEP-activatie functie returnt 1 bij input groter dan 0 en anders 0 
+    def activate(self, input:list): 
         for i in range(0, len(self.weights)):
-            x = 0
-            x += self.weights[i] * __input[i] + self.bias
-        if x >= 0:
-            return 1
-        else:
+            output = 0
+            output = (self.weights[i] * self.input[i])
+            output = output + self.bias
+        if output <= 0:
             return 0
-    ## Step activatie functie 
+        else:
+            return 1
 
-    def __str__(self): 
-        return 'weights' + {self.weights} + 'bias' + {self.bias}
+            
+# ## String functie
+#     def __str__(self): 
+#         return 'weights:' {self.weights} 'bias:' {self.bias}
 
-# class PerceptronLayer():
-#     def __init__(self, list)
+# __str__()
+
+class PerceptronLayer():
+    def __init__(self, n, weights, bias):
+        self.layer = []
+        for i in n: 
+            self.layer.append(Perceptron())
+
+    def activate_layer()
+        for i in range(0, len(Perceptron.weights)):
+            output = 0
+            output = (Perceptron.weights[i] * Perceptron.input[i])
+            output = output + perceptron.bias
+    if output <= 0: 
+            return 0
+    else return 1     
