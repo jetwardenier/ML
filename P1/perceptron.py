@@ -31,9 +31,25 @@ class PerceptronLayer():
 
     def activate_layer()
         for i in range(0, len(Perceptron.weights)):
-            output = 0
-            output = (Perceptron.weights[i] * Perceptron.input[i])
-            output = output + perceptron.bias
-    if output <= 0: 
+            outputlayer = 0
+            outputlayer = (Perceptron.weights[i] * Perceptron.input[i])
+            outputlayer = outputlayer + perceptron.bias
+        if outputlayer <= 0: 
             return 0
-    else return 1     
+        else: 
+            return 1
+
+class PerceptronNetwork(): 
+    def __init__(self, n, weights, bias)
+        self.network = []
+        for i in n: 
+            self.network.append(PerceptronLayer())
+
+    def feedforward()
+        for i in range(0, len(PerceptronLayer.weights)):
+            outputnetwork = 0
+            outputnetwork = (PerceptronLayer.weights[i] * Perceptron.input[i])
+            outputnetwork = outputnetwork + self.bias
+        if outputnetwork <= 0: 
+            return 0
+        else return 1
