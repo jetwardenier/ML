@@ -1,4 +1,6 @@
 from perceptron import Perceptron
+import unittest
+
 # Perceptron test met weigths 0.1, 0.5 en 0.1 en bias 2
 
 def test():
@@ -10,11 +12,10 @@ def test():
 ## Invert(not) gate zet input 1 om in 0 en vice versa
 def invert():
     p = Perceptron([-1], 0.5)
-    i1 = [0]
-    i2 = [1]
-    inv1 = p.activate(i1)
-    inv2 = p.activate(i2)
-    print(i1, i2, inv1, inv2)
+    inv1 = p.activate([0])
+    inv2 = p.activate([1])
+    p = Perceptron([-1], 0)
+    print(inv1, inv2)
 invert()
 
 ## AND gate
