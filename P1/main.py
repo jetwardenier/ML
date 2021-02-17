@@ -1,4 +1,6 @@
 from perceptron import Perceptron
+from perceptronLayer import *
+from perceptronNetwork import *
 import unittest
 
 # Perceptron test met weigths 0.1, 0.5 en 0.1 en bias 2
@@ -65,9 +67,3 @@ def partypoort():
     party8 = p.activate([0, 0, 0])
     print(party1, party2, party3, party4, party5, party6, party7, party8)
 partypoort()
-
-# def testLayer():
-#     l = (5, [0.5, -0.5], 2)
-#     l = l.activate_layer([1,1,1])
-#     print(l)
-# testLayer()
