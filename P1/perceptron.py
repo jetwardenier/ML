@@ -20,13 +20,6 @@ class Perceptron():
         return 1 if total >= 0 else 0
 
     def activate(self, _input: List[int]):
-        """
-        Activate this perceptron and evaluate the input.
-        Parameters:
-        _input: (list): A list of number
-        Returns:
-        int: The state of the perceptron 0 / 1.
-        """
         if len(self.weights) != len(_input):
             return None
 
