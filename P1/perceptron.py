@@ -1,51 +1,30 @@
-from typing import List, Sequence
-import random
-import math
+class Perceptron:
 
-
-class Perceptron():
-
-    def __init__(self, weights, bias, activation=None):
+    def __init__(self, weights: list, bias: int or float):
+        self.activationFunction = self.stepFunction
+        self.input = []
         self.weights = weights
         self.bias = bias
-        self.learningRate = 1
-        self.n = 0
-        self.totalError = 0
+        self.output = None
 
-        if activation is None:
-            activation = self.step
-        self.activation = activation
+##De input moet uit even veel waardes bestaan als de weights
+    def setInput(self, perceptronInput: list):
+        if len(perceptronInput) != len(self.weights):
+            raise Exception("Aantal inputs moet gelijk zijn aan het aantal weights")
+        else:
+            self.input = perceptronInput
 
-    def step(self, total):
-        return 1 if total >= 0 else 0
+##Bij alle getallen onder de 0 geeft de stepfunctie 0 terug, bij 0 of groter dan 0 geeft de functie 1 terug
+    def stepFunction(self, x):
+        return 0 if x < 0 else 1
 
-    def activate(self, _input: List[int]):
-        if len(self.weights) != len(_input):
-            return None
-
-        total = 0
-        for i in range(0, len(self.weights)):
-            total += self.weights[i] * _input[i]
-        total += self.bias
-        return self.activation(total)
-
-    def update(self, _input: List[int], target: int):
-        output = self.activate(_input)
-        error = target - output
-        b_delta = self.learningRate * error
-
-        self.totalError += error
-        self.n += 1
-
-        for i in range(len(_input)):
-            self.weights[i] += b_delta * _input[i]
-
-        self.bias += b_delta
-        return -1 if error == 0 else 0
-
-    def mse(self):
-        return (self.totalError ** 2) / self.n
+##De input wordt vermenigvuldigd met zijn weights en de bias wordt daarna verrekend
+    def activate(self):
+            self.output = 0
+            for i in range(len(self.input)):
+                self.output += self.input[i] * self.weights[i]
+            self.output += self.bias
+            self.output = self.activationFunction(self.output)
 
     def __str__(self):
-        return f"Weights {self.weights}, Bias {self.bias}, Learningrate {self.learningRate}"
-
+        return f"input: {self.input}, weights: {self.weights}, bias: {self.bias}, output: {self.output}"

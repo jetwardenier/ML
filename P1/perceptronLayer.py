@@ -1,17 +1,22 @@
-from perceptron import *
+class PerceptronLayer:
+    def __init__(self, perceptrons: list):
+        self.perceptrons = perceptrons
+        self.layerInput = []
+        self.output = []
 
-## init voegt alle perceptrons toe aan de layer
-class PerceptronLayer():
-    def __init__(self, weights, bias):
-        self.perceptrons = []
-        for i in range (0, len(weights)):
-            self.perceptrons.append(Perceptron(weights[i], bias[i]))
+    def setInput(self, layerInput: list):
+        self.layerInput = layerInput
 
-## activatie functie aanroepen op perceptrons en output appenden aan de outputlayer
-    def activateLayer(self, inputLayer: list):
-        outputLayer = []
-        for i in range(0, len(self.weigths)):
-            perceptron = self.perceptrons[i]
-            input = inputLayer
-            outputLayer.append(perceptron.activate(input))
+    def activate(self):
+        if self.layerInput:
+            self.output = []  # Reset the output
+            for perceptron in self.perceptrons:
+                perceptron.setInput(self.layerInput)
+                perceptron.activate()
+                self.output.append(perceptron.output)
 
+    def __str__(self):
+        string = ""
+        for perceptron in self.perceptrons:
+            string += perceptron.__str__() + '\n'
+        return string
