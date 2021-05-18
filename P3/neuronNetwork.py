@@ -8,6 +8,8 @@ class neuronNetwork:
     def setInput(self, networkInput: list):
         self.networkInput = networkInput
 
+    ## This fucntion makes sure the output of one layer will be the input for the next layer.
+    ## in the end the final output will be generated
     def feedForward(self):
             layerInput = self.networkInput
             for layer in self.layers:
