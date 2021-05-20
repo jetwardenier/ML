@@ -1,4 +1,4 @@
-class NeuronLayer:
+class neuronLayer:
     def __init__(self, neurons: list):
         self.neurons = neurons
         self.layerInput = []
@@ -9,7 +9,7 @@ class NeuronLayer:
 
     def activate(self):
         if self.layerInput:
-            self.output = []  # Reset the output
+            self.output = []
             for neuron in self.neurons:
                 neuron.setInput(self.layerInput)
                 neuron.activate()
@@ -18,5 +18,5 @@ class NeuronLayer:
     def __str__(self):
         string = ""
         for neuron in self.neurons:
-            string += "neuron: " + neuron.__str__() + '\n'
+            string += "neurons:"+ neuron.__str__() + '\n'
         return string
